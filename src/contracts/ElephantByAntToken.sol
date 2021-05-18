@@ -9,13 +9,13 @@ contract ElephantByAntToekn is ERC721 {
         owner = msg.sender;
     }
 
-    function x(address to, uint256 id) public {
+    function create(
+        address to,
+        uint256 id,
+        string memory data
+    ) public {
         require(msg.sender == owner, "No Auth");
         _safeMint(to, id);
-    }
-
-    function y(uint256 id, string memory data) public {
-        require(msg.sender == ownerOf(id), "No Auth");
         _setTokenURI(id, data);
     }
 }
